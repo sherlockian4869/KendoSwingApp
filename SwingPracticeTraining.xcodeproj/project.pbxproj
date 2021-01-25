@@ -3,27 +3,55 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		392AF2D125BB314900DC0384 /* AddTrainingDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392AF2D025BB314900DC0384 /* AddTrainingDataViewController.swift */; };
+		392AF2D425BBDC7000DC0384 /* TrainingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392AF2D325BBDC6F00DC0384 /* TrainingData.swift */; };
+		392AF2D625BBF19500DC0384 /* ShowTrainingMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392AF2D525BBF19500DC0384 /* ShowTrainingMenuViewController.swift */; };
+		392AF2D925BD9E5C00DC0384 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392AF2D825BD9E5C00DC0384 /* GraphViewController.swift */; };
 		3990ADC325BB1DDD007E1DAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3990ADC225BB1DDD007E1DAA /* AppDelegate.swift */; };
 		3990ADC525BB1DDD007E1DAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3990ADC425BB1DDD007E1DAA /* SceneDelegate.swift */; };
-		3990ADC725BB1DDD007E1DAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3990ADC625BB1DDD007E1DAA /* ViewController.swift */; };
+		3990ADC725BB1DDD007E1DAA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3990ADC625BB1DDD007E1DAA /* HomeViewController.swift */; };
 		3990ADCA25BB1DDD007E1DAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3990ADC825BB1DDD007E1DAA /* Main.storyboard */; };
 		3990ADCC25BB1DE1007E1DAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3990ADCB25BB1DE1007E1DAA /* Assets.xcassets */; };
 		3990ADCF25BB1DE1007E1DAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3990ADCD25BB1DE1007E1DAA /* LaunchScreen.storyboard */; };
+		3990ADDA25BB1EB3007E1DAA /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3990ADD925BB1EB3007E1DAA /* SignupViewController.swift */; };
+		3990ADDC25BB1EBD007E1DAA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3990ADDB25BB1EBD007E1DAA /* LoginViewController.swift */; };
+		3990ADDF25BB1EF3007E1DAA /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3990ADDE25BB1EF3007E1DAA /* SignUp.storyboard */; };
+		3990ADE125BB1EFC007E1DAA /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3990ADE025BB1EFC007E1DAA /* Login.storyboard */; };
+		3990ADE425BB24F7007E1DAA /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3990ADE325BB24F7007E1DAA /* UserData.swift */; };
+		3990ADE625BB25E4007E1DAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3990ADE525BB25E4007E1DAA /* GoogleService-Info.plist */; };
+		3990ADE925BB2647007E1DAA /* TrainingMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3990ADE825BB2647007E1DAA /* TrainingMenuViewController.swift */; };
+		3990ADEC25BB2688007E1DAA /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3990ADEB25BB2688007E1DAA /* UIColor.swift */; };
+		E9FE821A3A4267A69EB6F094 /* Pods_SwingPracticeTraining.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 110DBAEC0CB2FE3502224170 /* Pods_SwingPracticeTraining.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		110DBAEC0CB2FE3502224170 /* Pods_SwingPracticeTraining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwingPracticeTraining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		195CECF333DCBBC01221DE08 /* Pods-SwingPracticeTraining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwingPracticeTraining.debug.xcconfig"; path = "Target Support Files/Pods-SwingPracticeTraining/Pods-SwingPracticeTraining.debug.xcconfig"; sourceTree = "<group>"; };
+		392AF2D025BB314900DC0384 /* AddTrainingDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTrainingDataViewController.swift; sourceTree = "<group>"; };
+		392AF2D325BBDC6F00DC0384 /* TrainingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingData.swift; sourceTree = "<group>"; };
+		392AF2D525BBF19500DC0384 /* ShowTrainingMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTrainingMenuViewController.swift; sourceTree = "<group>"; };
+		392AF2D825BD9E5C00DC0384 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		3990ADBF25BB1DDD007E1DAA /* SwingPracticeTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwingPracticeTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3990ADC225BB1DDD007E1DAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3990ADC425BB1DDD007E1DAA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3990ADC625BB1DDD007E1DAA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3990ADC625BB1DDD007E1DAA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3990ADC925BB1DDD007E1DAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3990ADCB25BB1DE1007E1DAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3990ADCE25BB1DE1007E1DAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3990ADD025BB1DE1007E1DAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3990ADD925BB1EB3007E1DAA /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		3990ADDB25BB1EBD007E1DAA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3990ADDE25BB1EF3007E1DAA /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		3990ADE025BB1EFC007E1DAA /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		3990ADE325BB24F7007E1DAA /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		3990ADE525BB25E4007E1DAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3990ADE825BB2647007E1DAA /* TrainingMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingMenuViewController.swift; sourceTree = "<group>"; };
+		3990ADEB25BB2688007E1DAA /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		E77948992B8AAD12C54AEC08 /* Pods-SwingPracticeTraining.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwingPracticeTraining.release.xcconfig"; path = "Target Support Files/Pods-SwingPracticeTraining/Pods-SwingPracticeTraining.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +59,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9FE821A3A4267A69EB6F094 /* Pods_SwingPracticeTraining.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22ADC69D605F8BC4D61E8F27 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				110DBAEC0CB2FE3502224170 /* Pods_SwingPracticeTraining.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		392AF2D725BD9E2800DC0384 /* ShowGraphViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				392AF2D825BD9E5C00DC0384 /* GraphViewController.swift */,
+			);
+			path = ShowGraphViewControllers;
+			sourceTree = "<group>";
+		};
 		3990ADB625BB1DDD007E1DAA = {
 			isa = PBXGroup;
 			children = (
 				3990ADC125BB1DDD007E1DAA /* SwingPracticeTraining */,
 				3990ADC025BB1DDD007E1DAA /* Products */,
+				4AD54553599DFE827F4A8EE0 /* Pods */,
+				22ADC69D605F8BC4D61E8F27 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +105,82 @@
 			children = (
 				3990ADC225BB1DDD007E1DAA /* AppDelegate.swift */,
 				3990ADC425BB1DDD007E1DAA /* SceneDelegate.swift */,
-				3990ADC625BB1DDD007E1DAA /* ViewController.swift */,
-				3990ADC825BB1DDD007E1DAA /* Main.storyboard */,
+				3990ADEA25BB267A007E1DAA /* Extensions */,
+				3990ADE225BB24E5007E1DAA /* Models */,
+				3990ADD725BB1DFE007E1DAA /* RankViewControllers */,
+				3990ADE725BB260D007E1DAA /* TrainingMenuViewControllers */,
+				392AF2D725BD9E2800DC0384 /* ShowGraphViewControllers */,
+				3990ADD825BB1E94007E1DAA /* SignUp&Login */,
+				3990ADDD25BB1EC7007E1DAA /* StoryBoards */,
 				3990ADCB25BB1DE1007E1DAA /* Assets.xcassets */,
 				3990ADCD25BB1DE1007E1DAA /* LaunchScreen.storyboard */,
 				3990ADD025BB1DE1007E1DAA /* Info.plist */,
+				3990ADE525BB25E4007E1DAA /* GoogleService-Info.plist */,
 			);
 			path = SwingPracticeTraining;
+			sourceTree = "<group>";
+		};
+		3990ADD725BB1DFE007E1DAA /* RankViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3990ADC625BB1DDD007E1DAA /* HomeViewController.swift */,
+			);
+			path = RankViewControllers;
+			sourceTree = "<group>";
+		};
+		3990ADD825BB1E94007E1DAA /* SignUp&Login */ = {
+			isa = PBXGroup;
+			children = (
+				3990ADD925BB1EB3007E1DAA /* SignupViewController.swift */,
+				3990ADDB25BB1EBD007E1DAA /* LoginViewController.swift */,
+			);
+			path = "SignUp&Login";
+			sourceTree = "<group>";
+		};
+		3990ADDD25BB1EC7007E1DAA /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				3990ADC825BB1DDD007E1DAA /* Main.storyboard */,
+				3990ADDE25BB1EF3007E1DAA /* SignUp.storyboard */,
+				3990ADE025BB1EFC007E1DAA /* Login.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		3990ADE225BB24E5007E1DAA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3990ADE325BB24F7007E1DAA /* UserData.swift */,
+				392AF2D325BBDC6F00DC0384 /* TrainingData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3990ADE725BB260D007E1DAA /* TrainingMenuViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3990ADE825BB2647007E1DAA /* TrainingMenuViewController.swift */,
+				392AF2D025BB314900DC0384 /* AddTrainingDataViewController.swift */,
+				392AF2D525BBF19500DC0384 /* ShowTrainingMenuViewController.swift */,
+			);
+			path = TrainingMenuViewControllers;
+			sourceTree = "<group>";
+		};
+		3990ADEA25BB267A007E1DAA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3990ADEB25BB2688007E1DAA /* UIColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4AD54553599DFE827F4A8EE0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				195CECF333DCBBC01221DE08 /* Pods-SwingPracticeTraining.debug.xcconfig */,
+				E77948992B8AAD12C54AEC08 /* Pods-SwingPracticeTraining.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +190,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3990ADD325BB1DE1007E1DAA /* Build configuration list for PBXNativeTarget "SwingPracticeTraining" */;
 			buildPhases = (
+				94524E0082BA029FD542B1A4 /* [CP] Check Pods Manifest.lock */,
 				3990ADBB25BB1DDD007E1DAA /* Sources */,
 				3990ADBC25BB1DDD007E1DAA /* Frameworks */,
 				3990ADBD25BB1DDD007E1DAA /* Resources */,
+				46D4428122D19B57F3756AC7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,20 +245,74 @@
 			files = (
 				3990ADCF25BB1DE1007E1DAA /* LaunchScreen.storyboard in Resources */,
 				3990ADCC25BB1DE1007E1DAA /* Assets.xcassets in Resources */,
+				3990ADDF25BB1EF3007E1DAA /* SignUp.storyboard in Resources */,
+				3990ADE125BB1EFC007E1DAA /* Login.storyboard in Resources */,
+				3990ADE625BB25E4007E1DAA /* GoogleService-Info.plist in Resources */,
 				3990ADCA25BB1DDD007E1DAA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		46D4428122D19B57F3756AC7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwingPracticeTraining/Pods-SwingPracticeTraining-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwingPracticeTraining/Pods-SwingPracticeTraining-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwingPracticeTraining/Pods-SwingPracticeTraining-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94524E0082BA029FD542B1A4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwingPracticeTraining-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3990ADBB25BB1DDD007E1DAA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3990ADC725BB1DDD007E1DAA /* ViewController.swift in Sources */,
+				3990ADE425BB24F7007E1DAA /* UserData.swift in Sources */,
+				3990ADE925BB2647007E1DAA /* TrainingMenuViewController.swift in Sources */,
+				3990ADC725BB1DDD007E1DAA /* HomeViewController.swift in Sources */,
+				392AF2D125BB314900DC0384 /* AddTrainingDataViewController.swift in Sources */,
+				392AF2D625BBF19500DC0384 /* ShowTrainingMenuViewController.swift in Sources */,
 				3990ADC325BB1DDD007E1DAA /* AppDelegate.swift in Sources */,
+				3990ADDA25BB1EB3007E1DAA /* SignupViewController.swift in Sources */,
+				3990ADEC25BB2688007E1DAA /* UIColor.swift in Sources */,
+				3990ADDC25BB1EBD007E1DAA /* LoginViewController.swift in Sources */,
+				392AF2D925BD9E5C00DC0384 /* GraphViewController.swift in Sources */,
 				3990ADC525BB1DDD007E1DAA /* SceneDelegate.swift in Sources */,
+				392AF2D425BBDC7000DC0384 /* TrainingData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +454,7 @@
 		};
 		3990ADD425BB1DE1007E1DAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 195CECF333DCBBC01221DE08 /* Pods-SwingPracticeTraining.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -299,6 +472,7 @@
 		};
 		3990ADD525BB1DE1007E1DAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E77948992B8AAD12C54AEC08 /* Pods-SwingPracticeTraining.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
