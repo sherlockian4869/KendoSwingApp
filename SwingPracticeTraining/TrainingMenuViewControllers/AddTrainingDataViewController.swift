@@ -12,10 +12,17 @@ class AddTrainingDataViewController: UIViewController {
     @IBOutlet weak var swingType03: UITextField!
     @IBOutlet weak var swingType04: UITextField!
     
+    var pickerView01 = UIPickerView()
+    var pickerView02 = UIPickerView()
+    var pickerView03 = UIPickerView()
+    var pickerView04 = UIPickerView()
+    
     @IBOutlet weak var swingCount01: UITextField!
     @IBOutlet weak var swingCount02: UITextField!
     @IBOutlet weak var swingCount03: UITextField!
     @IBOutlet weak var swingCount04: UITextField!
+    
+    var swingType = ["上下素振り", "正面素振り", "左右素振り", "速素振り"]
     
     @IBOutlet weak var showErrorLabel: UILabel!
     @IBOutlet weak var addDataButton: UIButton!
@@ -34,6 +41,21 @@ class AddTrainingDataViewController: UIViewController {
         addDataButton.isEnabled = false
         addDataButton.addTarget(self, action: #selector(tappedAddDataButton), for: .touchUpInside)
         trainingTitleTextField.delegate = self
+        
+        pickerView01.delegate = self
+        pickerView02.delegate = self
+        pickerView03.delegate = self
+        pickerView04.delegate = self
+        
+        pickerView01.dataSource = self
+        pickerView02.dataSource = self
+        pickerView03.dataSource = self
+        pickerView04.dataSource = self
+        
+        pickerView01.tag = 0
+        pickerView02.tag = 1
+        pickerView03.tag = 2
+        pickerView04.tag = 3
         // 全てのTextFieldの初期設定
         swingType01.backgroundColor = .rgb(red: 154, green: 224, blue: 97, alpha: 0.2)
         swingType01.isEnabled = true
@@ -62,6 +84,26 @@ class AddTrainingDataViewController: UIViewController {
         swingCount03.delegate = self
         swingCount04.delegate = self
         
+        self.swingType01.inputView = pickerView01
+        self.swingType02.inputView = pickerView02
+        self.swingType03.inputView = pickerView03
+        self.swingType04.inputView = pickerView04
+        
+        let toolbar = UIToolbar()
+        toolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 44)
+        let doneButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(AddTrainingDataViewController.donePicker))
+        toolbar.setItems([doneButtonItem], animated: true)
+        swingType01.inputAccessoryView = toolbar
+        swingType02.inputAccessoryView = toolbar
+        swingType03.inputAccessoryView = toolbar
+        swingType04.inputAccessoryView = toolbar
+    }
+    
+    @objc func donePicker() {
+        swingType01.endEditing(true)
+        swingType02.endEditing(true)
+        swingType03.endEditing(true)
+        swingType04.endEditing(true)
     }
     
     @IBAction func stepperChange(_ sender: Any) {
@@ -78,19 +120,25 @@ class AddTrainingDataViewController: UIViewController {
             swingType01.isEnabled = true
             swingType02.backgroundColor = .lightGray
             swingType02.isEnabled = false
+            swingType02.text = ""
             swingType03.backgroundColor = .lightGray
             swingType03.isEnabled = false
+            swingType03.text = ""
             swingType04.backgroundColor = .lightGray
             swingType04.isEnabled = false
+            swingType04.text = ""
             // countのTextField
             swingCount01.backgroundColor = .rgb(red: 242, green: 213, blue: 85, alpha: 0.3)
             swingCount01.isEnabled = true
             swingCount02.backgroundColor = .lightGray
             swingCount02.isEnabled = false
+            swingCount02.text = ""
             swingCount03.backgroundColor = .lightGray
             swingCount03.isEnabled = false
+            swingCount03.text = ""
             swingCount04.backgroundColor = .lightGray
             swingCount04.isEnabled = false
+            swingCount04.text = ""
         case 2:
             print(2)
             // typeのTextField
@@ -100,8 +148,10 @@ class AddTrainingDataViewController: UIViewController {
             swingType02.isEnabled = true
             swingType03.backgroundColor = .lightGray
             swingType03.isEnabled = false
+            swingType03.text = ""
             swingType04.backgroundColor = .lightGray
             swingType04.isEnabled = false
+            swingType04.text = ""
             // countのTextField
             swingCount01.backgroundColor = .rgb(red: 242, green: 213, blue: 85, alpha: 0.3)
             swingCount01.isEnabled = true
@@ -109,8 +159,10 @@ class AddTrainingDataViewController: UIViewController {
             swingCount02.isEnabled = true
             swingCount03.backgroundColor = .lightGray
             swingCount03.isEnabled = false
+            swingCount03.text = ""
             swingCount04.backgroundColor = .lightGray
             swingCount04.isEnabled = false
+            swingCount04.text = ""
         case 3:
             print(3)
             // typeのTextField
@@ -122,6 +174,7 @@ class AddTrainingDataViewController: UIViewController {
             swingType03.isEnabled = true
             swingType04.backgroundColor = .lightGray
             swingType04.isEnabled = false
+            swingType04.text = ""
             // countのTextField
             swingCount01.backgroundColor = .rgb(red: 242, green: 213, blue: 85, alpha: 0.3)
             swingCount01.isEnabled = true
@@ -131,6 +184,7 @@ class AddTrainingDataViewController: UIViewController {
             swingCount03.isEnabled = true
             swingCount04.backgroundColor = .lightGray
             swingCount04.isEnabled = false
+            swingCount04.text = ""
         case 4:
             print(4)
             // typeのTextField
@@ -306,6 +360,58 @@ extension AddTrainingDataViewController: UITextFieldDelegate {
             }
         default:
             break
+        }
+    }
+}
+
+extension AddTrainingDataViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int  {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+
+        if pickerView.tag == 0 {
+            return swingType.count
+        } else if pickerView.tag == 1 {
+            return swingType.count
+        } else if pickerView.tag == 2 {
+            return  swingType.count
+        } else if  pickerView.tag == 3 {
+            return swingType.count
+        }
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+
+        if pickerView.tag == 0 {
+            return swingType[row]
+        } else if pickerView.tag == 1 {
+            return swingType[row]
+        } else if pickerView.tag == 2 {
+            return swingType[row]
+        } else if pickerView.tag == 3 {
+            return swingType[row]
+        }
+
+        return ""
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)  {
+        
+        if pickerView.tag == 0 {
+            swingType01.text = swingType[row]
+        } else if pickerView.tag == 1 {
+            swingType02.text = swingType[row]
+        } else if pickerView.tag == 2 {
+            swingType03.text = swingType[row]
+        } else if pickerView.tag == 3 {
+            swingType04.text = swingType[row]
         }
     }
 }

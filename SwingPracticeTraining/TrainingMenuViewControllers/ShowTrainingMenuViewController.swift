@@ -61,13 +61,13 @@ class ShowTrainingMenuViewController: UIViewController {
         
         titleLabel.text = trainingTitle
         type01Label.text = type01
-        count01Label.text = String(count01!)
+        count01Label.text = "\(String(count01!))本"
         type02Label.text = type02
-        count02Label.text = String(count02!)
+        count02Label.text = "\(String(count02!))本"
         type03Label.text = type03
-        count03Label.text = String(count03!)
+        count03Label.text = "\(String(count03!))本"
         type04Label.text = type04
-        count04Label.text = String(count04!)
+        count04Label.text = "\(String(count04!))本"
     }
     
     @objc private func navFinishButton() {
