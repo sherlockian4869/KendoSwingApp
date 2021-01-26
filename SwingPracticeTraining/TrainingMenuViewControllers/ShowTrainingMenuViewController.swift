@@ -25,22 +25,27 @@ class ShowTrainingMenuViewController: UIViewController {
     //　データベース
     private var firebase = Firestore.firestore()
     
+    var getType01List = [Any]()
+    var getType02List = [Any]()
+    var getType03List = [Any]()
+    var getType04List = [Any]()
+    var achievementCount: Int?
+    var totalCount: Int?
+    
+    var type01Counter: Double = 0 // 上下素振り
+    var type02Counter: Double = 0 // 正面素振り
+    var type03Counter: Double = 0 // 左右素振り
+    var type04Counter: Double = 0 // 速素振り
+    
     //　受け取るデータの箱
     var trainingTitle: String?
     var trainingId: String?
-    var type01: String?
-    var count01: Int?
-    var type02: String?
-    var count02: Int?
-    var type03: String?
-    var count03: Int?
-    var type04: String?
-    var count04: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpView()
+        getDataFromFirebase()
     }
     
     private func setUpView() {
@@ -60,14 +65,40 @@ class ShowTrainingMenuViewController: UIViewController {
         self.navigationItem.rightBarButtonItem?.isEnabled = false
         
         titleLabel.text = trainingTitle
-        type01Label.text = type01
-        count01Label.text = "\(String(count01!))本"
-        type02Label.text = type02
-        count02Label.text = "\(String(count02!))本"
-        type03Label.text = type03
-        count03Label.text = "\(String(count03!))本"
-        type04Label.text = type04
-        count04Label.text = "\(String(count04!))本"
+    }
+    
+    private func getDataFromFirebase() {
+        guard let userName = UserDefaults.standard.string(forKey: "name") else { return }
+        guard let documentId = UserDefaults.standard.string(forKey: "\(userName)") else { return }
+        firebase.collection("user").document(documentId).collection("swingMenu").document(trainingId!).getDocument { (document, err) in
+            if err != nil {
+                print("データの取得に失敗しました")
+            }
+            let dataCounter = document?.data()
+            self.getType01List = dataCounter?["type01"] as! [Any]
+            self.getType02List = dataCounter?["type02"] as! [Any]
+            self.getType03List = dataCounter?["type03"] as! [Any]
+            self.getType04List = dataCounter?["type04"] as! [Any]
+            self.achievementCount = dataCounter?["achievementCount"] as? Int
+            self.totalCount = dataCounter?["totalCount"] as? Int
+            
+            self.type01Label.text = self.getType01List[0] as? String
+            self.type02Label.text = self.getType02List[0] as? String
+            self.type03Label.text = self.getType03List[0] as? String
+            self.type04Label.text = self.getType04List[0] as? String
+
+            self.type01Counter = (self.getType01List[1] as? Double)!
+            self.type02Counter = (self.getType02List[1] as? Double)!
+            self.type03Counter = (self.getType03List[1] as? Double)!
+            self.type04Counter = (self.getType04List[1] as? Double)!
+            
+            self.count01Label.text = "\(Int(self.type01Counter))本"
+            self.count02Label.text = "\(Int(self.type02Counter))本"
+            self.count03Label.text = "\(Int(self.type03Counter))本"
+            self.count04Label.text = "\(Int(self.type04Counter))本"
+            
+            print(self.type01Counter)
+        }
     }
     
     @objc private func navFinishButton() {
@@ -77,13 +108,21 @@ class ShowTrainingMenuViewController: UIViewController {
         
         let finishAction: UIAlertAction = UIAlertAction(title: "終了", style: UIAlertAction.Style.default, handler:{
             (action: UIAlertAction!) -> Void in
+            self.timer?.invalidate()
             self.tabBarController!.tabBar.items![0].isEnabled = true
             self.tabBarController!.tabBar.items![1].isEnabled = true
             self.tabBarController!.tabBar.items![2].isEnabled = true
             self.navigationController?.popToRootViewController(animated: true)
+            self.achievementCount! += 1
+            
+            self.totalCount! += Int(self.type01Counter + self.type02Counter + self.type03Counter + self.type04Counter)
             
             // トレーニング時間をFirebaseに格納
-            self.firebase.collection("user").document(documentId).collection("swingMenu").document(self.trainingId!).updateData(["trainingTime" : self.timerTotalDuration])
+            self.firebase.collection("user").document(documentId).collection("swingMenu").document(self.trainingId!).updateData([
+                "trainingTime" : self.timerTotalDuration,
+                "achievementCount" : self.achievementCount!,
+                "totalCount" : self.totalCount!
+            ])
         })
         let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
             (action: UIAlertAction!) -> Void in
@@ -94,7 +133,7 @@ class ShowTrainingMenuViewController: UIViewController {
     }
     
     @objc private func tappedStartButton() {
-        self.navigationItem.rightBarButtonItem?.isEnabled = true
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
         if timerRunning == false {
             startButton.isEnabled = false
             timer = Timer.scheduledTimer(
@@ -113,6 +152,7 @@ class ShowTrainingMenuViewController: UIViewController {
     }
     
     @objc private func tappedFinishButton() {
+        self.navigationItem.rightBarButtonItem?.isEnabled = true
         if timerRunning == true {
             timer?.invalidate()
             self.finishButton.isEnabled = false

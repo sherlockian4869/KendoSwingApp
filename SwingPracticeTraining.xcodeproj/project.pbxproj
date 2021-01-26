@@ -11,6 +11,7 @@
 		392AF2D425BBDC7000DC0384 /* TrainingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392AF2D325BBDC6F00DC0384 /* TrainingData.swift */; };
 		392AF2D625BBF19500DC0384 /* ShowTrainingMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392AF2D525BBF19500DC0384 /* ShowTrainingMenuViewController.swift */; };
 		392AF2D925BD9E5C00DC0384 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392AF2D825BD9E5C00DC0384 /* GraphViewController.swift */; };
+		392AF37525BFCE9800DC0384 /* SelectGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392AF37425BFCE9800DC0384 /* SelectGraphViewController.swift */; };
 		3990ADC325BB1DDD007E1DAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3990ADC225BB1DDD007E1DAA /* AppDelegate.swift */; };
 		3990ADC525BB1DDD007E1DAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3990ADC425BB1DDD007E1DAA /* SceneDelegate.swift */; };
 		3990ADC725BB1DDD007E1DAA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3990ADC625BB1DDD007E1DAA /* HomeViewController.swift */; };
@@ -35,6 +36,7 @@
 		392AF2D325BBDC6F00DC0384 /* TrainingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingData.swift; sourceTree = "<group>"; };
 		392AF2D525BBF19500DC0384 /* ShowTrainingMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTrainingMenuViewController.swift; sourceTree = "<group>"; };
 		392AF2D825BD9E5C00DC0384 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
+		392AF37425BFCE9800DC0384 /* SelectGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGraphViewController.swift; sourceTree = "<group>"; };
 		3990ADBF25BB1DDD007E1DAA /* SwingPracticeTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwingPracticeTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3990ADC225BB1DDD007E1DAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3990ADC425BB1DDD007E1DAA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		392AF2D725BD9E2800DC0384 /* ShowGraphViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				392AF37425BFCE9800DC0384 /* SelectGraphViewController.swift */,
 				392AF2D825BD9E5C00DC0384 /* GraphViewController.swift */,
 			);
 			path = ShowGraphViewControllers;
@@ -303,6 +306,7 @@
 			files = (
 				3990ADE425BB24F7007E1DAA /* UserData.swift in Sources */,
 				3990ADE925BB2647007E1DAA /* TrainingMenuViewController.swift in Sources */,
+				392AF37525BFCE9800DC0384 /* SelectGraphViewController.swift in Sources */,
 				3990ADC725BB1DDD007E1DAA /* HomeViewController.swift in Sources */,
 				392AF2D125BB314900DC0384 /* AddTrainingDataViewController.swift in Sources */,
 				392AF2D625BBF19500DC0384 /* ShowTrainingMenuViewController.swift in Sources */,

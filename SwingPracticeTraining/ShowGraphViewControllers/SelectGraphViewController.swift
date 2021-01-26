@@ -1,53 +1,43 @@
 import UIKit
 import FirebaseFirestore
 
-class TrainingMenuViewController: UIViewController {
-    
-    @IBOutlet weak var trainingMenuTableView: UITableView!
-    @IBOutlet weak var createMenuButton: UIButton!
+class SelectGraphViewController: UIViewController {
+
+    @IBOutlet weak var selectTableView: UITableView!
+    private var dataList = [TrainingData]()
     
     private var firebase = Firestore.firestore()
-    private var swingType: Int?
-    private var trainingList = [TrainingData]()
-    
-    //　送るデータの箱
-    var trainingTitle: String?
-    var trainingId: String?
-    
+    var documentId: String?
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpView()
-        fetchDataFromFirestore()
+        getDataFromFirestore()
     }
     
     private func setUpView() {
-        createMenuButton.layer.cornerRadius = 8
-        
-        trainingMenuTableView.delegate = self
-        trainingMenuTableView.dataSource = self
+        selectTableView.delegate = self
+        selectTableView.dataSource = self
     }
     
-    private func fetchDataFromFirestore() {
+    private func getDataFromFirestore() {
         guard let userName = UserDefaults.standard.string(forKey: "name") else { return }
         guard let documentId = UserDefaults.standard.string(forKey: "\(userName)") else { return }
-        
         firebase.collection("user").document(documentId).collection("swingMenu").addSnapshotListener { (snapshots, err) in
             if err != nil {
-                print("データの取得に失敗しました")
+                
             }
-            
             snapshots?.documentChanges.forEach({ (documentChange) in
                 switch documentChange.type {
                 case .added:
-                    let trainingId = documentChange.document.documentID
-                    let trainingObject = documentChange.document.data()
-                    guard let trainingTitle = trainingObject["swingTitle"] else { return }
-
+                    let dataDocumentId = documentChange.document.documentID
+                    let dataObject = documentChange.document.data() as [String:AnyObject]
+                    let title = dataObject["swingTitle"]
+                   
+                    let data = TrainingData(trainingTitle: title as? String, trainingId: dataDocumentId)
+                    self.dataList.append(data)
                     
-                    let training = TrainingData(trainingTitle: trainingTitle as? String, trainingId: trainingId)
-                    self.trainingList.append(training)
-                    self.trainingMenuTableView.reloadData()
+                    self.selectTableView.reloadData()
                     
                 case .modified, .removed:
                     print("Nothing To Do")
@@ -57,17 +47,17 @@ class TrainingMenuViewController: UIViewController {
     }
 }
 
-extension TrainingMenuViewController: UITableViewDelegate, UITableViewDataSource {
+extension SelectGraphViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return trainingList.count
+        return dataList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TrainingMenuTableViewCell
-        let training: TrainingData
-        training = trainingList[indexPath.row]
-        cell.trainingMenuLabel.text = training.trainingTitle
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SelectTableViewCell
+        let data: TrainingData
+        data = dataList[indexPath.row]
+        cell.selectLabel.text = data.trainingTitle
         return cell
     }
     
@@ -77,33 +67,31 @@ extension TrainingMenuViewController: UITableViewDelegate, UITableViewDataSource
     
     // セルタップ時に次の画面へ遷移
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let training: TrainingData
-        training = trainingList[indexPath.row]
-        trainingTitle = training.trainingTitle
-        trainingId = training.trainingId
+        let data: TrainingData
+        data = dataList[indexPath.row]
+        documentId = data.trainingId
 
         // セルの選択を解除
-        trainingMenuTableView.deselectRow(at: indexPath, animated: true)
+        selectTableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "NextView", sender: nil)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NextView" {
-            let nextVC = segue.destination as! ShowTrainingMenuViewController
-            nextVC.trainingTitle = trainingTitle
-            nextVC.trainingId = trainingId
-            
+            let nextVC = segue.destination as! GraphViewController
+            nextVC.trainingId = documentId
         }
     }
+    
 }
 
-class TrainingMenuTableViewCell: UITableViewCell {
+class SelectTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var trainingMenuLabel: UILabel!
-    @IBOutlet weak var trainingMenuView: UIView!
+    @IBOutlet weak var selectLabel: UILabel!
+    @IBOutlet weak var selectView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        trainingMenuView.layer.cornerRadius = 10
+        selectView.layer.cornerRadius = 10
         // セル選択時の色を変更
         selectedBackgroundView = makeSelectedBackgroundView()
     }

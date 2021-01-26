@@ -22,6 +22,13 @@ class AddTrainingDataViewController: UIViewController {
     @IBOutlet weak var swingCount03: UITextField!
     @IBOutlet weak var swingCount04: UITextField!
     
+    var getType01List = [Any]()
+    var getType02List = [Any]()
+    var getType03List = [Any]()
+    var getType04List = [Any]()
+    
+    var notTypeList = ["なし", 0] as [Any]
+    
     var swingType = ["上下素振り", "正面素振り", "左右素振り", "速素振り"]
     
     @IBOutlet weak var showErrorLabel: UILabel!
@@ -218,77 +225,69 @@ class AddTrainingDataViewController: UIViewController {
         
         guard let type01 = swingType01.text else { return }
         guard let count01 = swingCount01.text else { return }
+        getType01List.append(type01)
+        getType01List.append(Int(count01)!)
         guard let type02 = swingType02.text else { return }
         guard let count02 = swingCount02.text else { return }
+        getType02List.append(type02)
+        getType02List.append(Int(count02)!)
         guard let type03 = swingType03.text else { return }
         guard let count03 = swingCount03.text else { return }
+        getType03List.append(type03)
+        getType03List.append(Int(count03)!)
         guard let type04 = swingType04.text else { return }
         guard let count04 = swingCount04.text else { return }
+        getType04List.append(type04)
+        getType04List.append(Int(count04)!)
         switch countStepper.value {
         case 1:
             
             let dic = [
                 "swingTitle" : title,
-                "swingType" : Int(countStepper.value),
+                "achievementCount" : 0,
+                "totalCount" : 0,
                 "trainingTime" : 0,
-                "trainingCount" : 0,
-                "swingtype01" : type01,
-                "swingCount01" : Int(count01)!,
-                "swingtype02" : "なし",
-                "swingCount02" : 0,
-                "swingtype03" : "なし",
-                "swingCount03" : 0,
-                "swingtype04" : "なし",
-                "swingCount04" : 0,
+                "type01" : getType01List,
+                "type02" : notTypeList,
+                "type03" : notTypeList,
+                "type04" : notTypeList,
                 ] as [String : Any]
             firebase.collection("user").document(documentId).collection("swingMenu").addDocument(data: dic)
         case 2:
             
             let dic = [
                 "swingTitle" : title,
-                "swingType": Int(countStepper.value),
+                "achievementCount" : 0,
+                "totalCount" : 0,
                 "trainingTime" : 0,
-                "trainingCount" : 0,
-                "swingtype01" : type01,
-                "swingCount01" : Int(count01)!,
-                "swingtype02" : type02,
-                "swingCount02" : Int(count02)!,
-                "swingtype03" : "なし",
-                "swingCount03" : 0,
-                "swingtype04" : "なし",
-                "swingCount04" : 0,
+                "type01" : getType01List,
+                "type02" : getType02List,
+                "type03" : notTypeList,
+                "type04" : notTypeList,
                 ] as [String : Any]
             firebase.collection("user").document(documentId).collection("swingMenu").addDocument(data: dic)
         case 3:
             let dic = [
                 "swingTitle" : title,
-                "swingType": Int(countStepper.value),
+                "achievementCount" : 0,
+                "totalCount" : 0,
                 "trainingTime" : 0,
-                "trainingCount" : 0,
-                "swingtype01" : type01,
-                "swingCount01" : Int(count01)!,
-                "swingtype02" : type02,
-                "swingCount02" : Int(count02)!,
-                "swingtype03" : type03,
-                "swingCount03" : Int(count03)!,
-                "swingtype04" : "なし",
-                "swingCount04" : 0,
+                "type01" : getType01List,
+                "type02" : getType02List,
+                "type03" : getType03List,
+                "type04" : notTypeList,
                 ] as [String : Any]
             firebase.collection("user").document(documentId).collection("swingMenu").addDocument(data: dic)
         case 4:
             let dic = [
                 "swingTitle" : title,
-                "swingType": Int(countStepper.value),
+                "achievementCount" : 0,
+                "totalCount" : 0,
                 "trainingTime" : 0,
-                "trainingCount" : 0,
-                "swingtype01" : type01,
-                "swingCount01" : Int(count01)!,
-                "swingtype02" : type02,
-                "swingCount02" : Int(count02)!,
-                "swingtype03" : type03,
-                "swingCount03" : Int(count02)!,
-                "swingtype04" : type04,
-                "swingCount04" : Int(count04)!,
+                "type01" : getType01List,
+                "type02" : getType02List,
+                "type03" : getType03List,
+                "type04" : getType04List,
                 ] as [String : Any]
             firebase.collection("user").document(documentId).collection("swingMenu").addDocument(data: dic)
         default:
