@@ -223,24 +223,12 @@ class AddTrainingDataViewController: UIViewController {
         guard let userName = UserDefaults.standard.string(forKey: "name") else { return }
         guard let documentId = UserDefaults.standard.string(forKey: "\(userName)") else { return }
         
-        guard let type01 = swingType01.text else { return }
-        guard let count01 = swingCount01.text else { return }
-        getType01List.append(type01)
-        getType01List.append(Int(count01)!)
-        guard let type02 = swingType02.text else { return }
-        guard let count02 = swingCount02.text else { return }
-        getType02List.append(type02)
-        getType02List.append(Int(count02)!)
-        guard let type03 = swingType03.text else { return }
-        guard let count03 = swingCount03.text else { return }
-        getType03List.append(type03)
-        getType03List.append(Int(count03)!)
-        guard let type04 = swingType04.text else { return }
-        guard let count04 = swingCount04.text else { return }
-        getType04List.append(type04)
-        getType04List.append(Int(count04)!)
         switch countStepper.value {
         case 1:
+            guard let type01 = swingType01.text else { return }
+            guard let count01 = swingCount01.text else { return }
+            getType01List.append(type01)
+            getType01List.append(Int(count01)!)
             
             let dic = [
                 "swingTitle" : title,
@@ -254,6 +242,14 @@ class AddTrainingDataViewController: UIViewController {
                 ] as [String : Any]
             firebase.collection("user").document(documentId).collection("swingMenu").addDocument(data: dic)
         case 2:
+            guard let type01 = swingType01.text else { return }
+            guard let count01 = swingCount01.text else { return }
+            getType01List.append(type01)
+            getType01List.append(Int(count01)!)
+            guard let type02 = swingType02.text else { return }
+            guard let count02 = swingCount02.text else { return }
+            getType02List.append(type02)
+            getType02List.append(Int(count02)!)
             
             let dic = [
                 "swingTitle" : title,
@@ -267,6 +263,19 @@ class AddTrainingDataViewController: UIViewController {
                 ] as [String : Any]
             firebase.collection("user").document(documentId).collection("swingMenu").addDocument(data: dic)
         case 3:
+            guard let type01 = swingType01.text else { return }
+            guard let count01 = swingCount01.text else { return }
+            getType01List.append(type01)
+            getType01List.append(Int(count01)!)
+            guard let type02 = swingType02.text else { return }
+            guard let count02 = swingCount02.text else { return }
+            getType02List.append(type02)
+            getType02List.append(Int(count02)!)
+            guard let type03 = swingType03.text else { return }
+            guard let count03 = swingCount03.text else { return }
+            getType03List.append(type03)
+            getType03List.append(Int(count03)!)
+            
             let dic = [
                 "swingTitle" : title,
                 "achievementCount" : 0,
@@ -279,6 +288,23 @@ class AddTrainingDataViewController: UIViewController {
                 ] as [String : Any]
             firebase.collection("user").document(documentId).collection("swingMenu").addDocument(data: dic)
         case 4:
+            guard let type01 = swingType01.text else { return }
+            guard let count01 = swingCount01.text else { return }
+            getType01List.append(type01)
+            getType01List.append(Int(count01)!)
+            guard let type02 = swingType02.text else { return }
+            guard let count02 = swingCount02.text else { return }
+            getType02List.append(type02)
+            getType02List.append(Int(count02)!)
+            guard let type03 = swingType03.text else { return }
+            guard let count03 = swingCount03.text else { return }
+            getType03List.append(type03)
+            getType03List.append(Int(count03)!)
+            guard let type04 = swingType04.text else { return }
+            guard let count04 = swingCount04.text else { return }
+            getType04List.append(type04)
+            getType04List.append(Int(count04)!)
+            
             let dic = [
                 "swingTitle" : title,
                 "achievementCount" : 0,

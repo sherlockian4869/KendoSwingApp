@@ -637,7 +637,7 @@
                     <tabBarItem key="tabBarItem" title="ランキング" id="FtI-Jn-nqm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="eR1-CV-uo7">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -676,7 +676,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X18-cg-BEw">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X18-cg-BEw">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -771,11 +771,11 @@
             </objects>
             <point key="canvasLocation" x="5629" y="1726"/>
         </scene>
-        <!--Item-->
+        <!--データ-->
         <scene sceneID="dXo-zR-bc2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bbP-KY-q4K" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="h3Q-df-iwR"/>
+                    <tabBarItem key="tabBarItem" title="データ" id="h3Q-df-iwR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Qc0-TF-aCV">
                         <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>

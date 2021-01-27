@@ -66,7 +66,11 @@ class SignupViewController: UIViewController {
         let doc = [
             "userName" : userName,
             "userPlace" : userPlace,
-            "totalCount" : 0
+            "totalCount" : 0,
+            "type01Total" : 0,
+            "type02Total" : 0,
+            "type03Total" : 0,
+            "type04Total" : 0
             ] as [String : Any]
         // FirestoreでUser情報を保存
         firebase.collection("user").addDocument(data: doc)

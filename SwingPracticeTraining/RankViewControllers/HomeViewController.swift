@@ -60,7 +60,7 @@ class HomeViewController: UIViewController {
                         let ranking = UserData(username: rankUser as? String, totalCount: rankCount as? Int)
                         self.userData.append(ranking)
                         self.rankingTableView.reloadData()
-                        
+                                                
                     case .modified, .removed:
                         print("Nothing To Do")
                     }

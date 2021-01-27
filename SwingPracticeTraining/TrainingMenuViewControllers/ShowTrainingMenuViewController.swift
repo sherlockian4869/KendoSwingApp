@@ -2,7 +2,7 @@ import UIKit
 import FirebaseFirestore
 
 class ShowTrainingMenuViewController: UIViewController {
-
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var type01Label: UILabel!
     @IBOutlet weak var count01Label: UILabel!
@@ -31,11 +31,18 @@ class ShowTrainingMenuViewController: UIViewController {
     var getType04List = [Any]()
     var achievementCount: Int?
     var totalCount: Int?
+    var trainingCount: Int?
+    var allTotalCount: Int?
     
-    var type01Counter: Double = 0 // 上下素振り
-    var type02Counter: Double = 0 // 正面素振り
-    var type03Counter: Double = 0 // 左右素振り
-    var type04Counter: Double = 0 // 速素振り
+    var swingType = ["上下素振り", "正面素振り", "左右素振り", "速素振り"]
+    var type01Counter: Double? // 上下素振り
+    var type02Counter: Double? // 正面素振り
+    var type03Counter: Double? // 左右素振り
+    var type04Counter: Double? // 速素振り
+    var type01TotalCounter: Double? // 上下素振り
+    var type02TotalCounter: Double? // 正面素振り
+    var type03TotalCounter: Double? // 左右素振り
+    var type04TotalCounter: Double? // 速素振り
     
     //　受け取るデータの箱
     var trainingTitle: String?
@@ -43,7 +50,7 @@ class ShowTrainingMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setUpView()
         getDataFromFirebase()
     }
@@ -70,6 +77,17 @@ class ShowTrainingMenuViewController: UIViewController {
     private func getDataFromFirebase() {
         guard let userName = UserDefaults.standard.string(forKey: "name") else { return }
         guard let documentId = UserDefaults.standard.string(forKey: "\(userName)") else { return }
+        self.firebase.collection("user").document(documentId).getDocument { (document, err) in
+            if err != nil {
+                print("データの取得に失敗しました")
+            }
+            let count = document?.data()
+            self.allTotalCount = count?["totalCount"] as? Int
+            self.type01TotalCounter = count?["type01Total"] as? Double
+            self.type02TotalCounter = count?["type02Total"] as? Double
+            self.type03TotalCounter = count?["type03Total"] as? Double
+            self.type04TotalCounter = count?["type04Total"] as? Double
+        }
         firebase.collection("user").document(documentId).collection("swingMenu").document(trainingId!).getDocument { (document, err) in
             if err != nil {
                 print("データの取得に失敗しました")
@@ -86,16 +104,16 @@ class ShowTrainingMenuViewController: UIViewController {
             self.type02Label.text = self.getType02List[0] as? String
             self.type03Label.text = self.getType03List[0] as? String
             self.type04Label.text = self.getType04List[0] as? String
-
+            
             self.type01Counter = (self.getType01List[1] as? Double)!
             self.type02Counter = (self.getType02List[1] as? Double)!
             self.type03Counter = (self.getType03List[1] as? Double)!
             self.type04Counter = (self.getType04List[1] as? Double)!
             
-            self.count01Label.text = "\(Int(self.type01Counter))本"
-            self.count02Label.text = "\(Int(self.type02Counter))本"
-            self.count03Label.text = "\(Int(self.type03Counter))本"
-            self.count04Label.text = "\(Int(self.type04Counter))本"
+            self.count01Label.text = "\(Int(self.type01Counter!))本"
+            self.count02Label.text = "\(Int(self.type02Counter!))本"
+            self.count03Label.text = "\(Int(self.type03Counter!))本"
+            self.count04Label.text = "\(Int(self.type04Counter!))本"
             
             print(self.type01Counter)
         }
@@ -115,14 +133,18 @@ class ShowTrainingMenuViewController: UIViewController {
             self.navigationController?.popToRootViewController(animated: true)
             self.achievementCount! += 1
             
-            self.totalCount! += Int(self.type01Counter + self.type02Counter + self.type03Counter + self.type04Counter)
-            
+            self.totalCount! += Int(self.type01Counter! + self.type02Counter! + self.type03Counter! + self.type04Counter!)
+            self.trainingCount = Int(self.type01Counter! + self.type02Counter! + self.type03Counter! + self.type04Counter!)
+            self.allTotalCount! += self.trainingCount!
+            self.firebase.collection("user").document(documentId).updateData(["totalCount" : self.allTotalCount!])
             // トレーニング時間をFirebaseに格納
             self.firebase.collection("user").document(documentId).collection("swingMenu").document(self.trainingId!).updateData([
                 "trainingTime" : self.timerTotalDuration,
                 "achievementCount" : self.achievementCount!,
                 "totalCount" : self.totalCount!
             ])
+            
+            self.addDataToFirestore()
         })
         let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
             (action: UIAlertAction!) -> Void in
@@ -170,4 +192,81 @@ class ShowTrainingMenuViewController: UIViewController {
         self.timerLabel.text = String(format: "%02d:%02d:%02d", hour, minutes, second)
         print("timer fired. total: \(timerTotalDuration)")
     }
+    
+    private func addDataToFirestore() {
+        
+        self.type01Counter = 0
+        self.type02Counter = 0
+        self.type03Counter = 0
+        self.type04Counter = 0
+        
+        switch self.getType01List[0] as! String {
+        case self.swingType[0]: // 上下素振り
+            self.type01Counter = Double(self.getType01List[1] as! Int)
+        case self.swingType[1]: // 正面素振り
+            self.type02Counter = Double(self.getType01List[1] as! Int)
+        case self.swingType[2]: // 左右素振り
+            self.type03Counter = Double(self.getType01List[1] as! Int)
+        case self.swingType[3]: // 速素振り
+            self.type04Counter = Double(self.getType01List[1] as! Int)
+        default:
+            break
+        }
+        
+        switch self.getType02List[0] as! String {
+        case self.swingType[0]:
+            self.type01Counter = Double(self.getType02List[1] as! Int)
+        case self.swingType[1]:
+            self.type02Counter = Double(self.getType02List[1] as! Int)
+        case self.swingType[2]:
+            print(self.getType02List)
+            self.type03Counter = Double(self.getType02List[1] as! Int)
+            print(self.type03Counter)
+        case self.swingType[3]:
+            self.type04Counter = Double(self.getType02List[1] as! Int)
+        default:
+            break
+        }
+        
+        switch self.getType03List[0] as! String {
+        case self.swingType[0]:
+            self.type01Counter = Double(self.getType03List[1] as! Int)
+        case self.swingType[1]:
+            self.type02Counter = Double(self.getType03List[1] as! Int)
+        case self.swingType[2]:
+            self.type03Counter = Double(self.getType03List[1] as! Int)
+        case self.swingType[3]:
+            self.type04Counter = Double(self.getType03List[1] as! Int)
+        default:
+            break
+        }
+        
+        switch self.getType04List[0] as! String {
+        case self.swingType[0]:
+            self.type01Counter = Double(self.getType04List[1] as! Int)
+        case self.swingType[1]:
+            self.type02Counter = Double(self.getType04List[1] as! Int)
+        case self.swingType[2]:
+            self.type03Counter = Double(self.getType04List[1] as! Int)
+        case self.swingType[3]:
+            self.type04Counter = Double(self.getType04List[1] as! Int)
+        default:
+            break
+        }
+        
+        self.type01TotalCounter! += self.type01Counter!
+        self.type02TotalCounter! += self.type02Counter!
+        self.type03TotalCounter! += self.type03Counter!
+        self.type04TotalCounter! += self.type04Counter!
+        guard let userName = UserDefaults.standard.string(forKey: "name") else { return }
+        guard let documentId = UserDefaults.standard.string(forKey: "\(userName)") else { return }
+        firebase.collection("user").document(documentId).updateData([
+            "type01Total" : type01TotalCounter,
+            "type02Total" : type02TotalCounter,
+            "type03Total" : type03TotalCounter,
+            "type04Total" : type04TotalCounter,
+
+        ])
+    }
+    
 }
