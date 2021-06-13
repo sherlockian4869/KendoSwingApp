@@ -21,9 +21,15 @@ class TrainingMenuViewController: UIViewController {
         fetchDataFromFirestore()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController!.tabBar.items![0].isEnabled = true
+        self.tabBarController!.tabBar.items![1].isEnabled = true
+    }
+    
     private func setUpView() {
         createMenuButton.layer.cornerRadius = 8
-        
+    
         trainingMenuTableView.delegate = self
         trainingMenuTableView.dataSource = self
     }
