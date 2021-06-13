@@ -72,7 +72,7 @@ extension TrainingMenuViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 60
     }
     
     // セルタップ時に次の画面へ遷移
@@ -88,10 +88,9 @@ extension TrainingMenuViewController: UITableViewDelegate, UITableViewDataSource
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NextView" {
-            let nextVC = segue.destination as! ShowTrainingMenuViewController
-            nextVC.trainingTitle = trainingTitle
-            nextVC.trainingId = trainingId
-            
+            let nextVC = segue.destination as? ShowTrainingViewController
+            nextVC?.trainingTitle = trainingTitle
+            nextVC?.trainingId = trainingId
         }
     }
 }

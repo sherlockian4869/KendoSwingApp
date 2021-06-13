@@ -60,7 +60,7 @@ class HomeViewController: UIViewController {
                         let ranking = UserData(username: rankUser as? String, totalCount: rankCount as? Int)
                         self.userData.append(ranking)
                         self.rankingTableView.reloadData()
-                                                
+                        
                     case .modified, .removed:
                         print("Nothing To Do")
                     }
@@ -142,12 +142,19 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let rank: UserData
         rank = userData[indexPath.row]
         cell.userNameLabel.text = rank.username
+        let userName = UserDefaults.standard.string(forKey: "name")
+        // 自分のCellの色と違うユーザのCellの色を変える
+        if rank.username == userName {
+            cell.homeView.backgroundColor = .rgb(red: 255, green: 165, blue: 0, alpha: 1)
+        } else {
+            cell.homeView.backgroundColor = .rgb(red: 183, green: 193, blue: 210, alpha: 1)
+        }
         cell.totalCountLabel.text = "\(rank.totalCount!)本"
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 60
     }
 }
 

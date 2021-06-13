@@ -3,15 +3,6 @@ import FirebaseFirestore
 
 class ShowTrainingMenuViewController: UIViewController {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var type01Label: UILabel!
-    @IBOutlet weak var count01Label: UILabel!
-    @IBOutlet weak var type02Label: UILabel!
-    @IBOutlet weak var count02Label: UILabel!
-    @IBOutlet weak var type03Label: UILabel!
-    @IBOutlet weak var count03Label: UILabel!
-    @IBOutlet weak var type04Label: UILabel!
-    @IBOutlet weak var count04Label: UILabel!
     
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
@@ -24,26 +15,7 @@ class ShowTrainingMenuViewController: UIViewController {
     
     //　データベース
     private var firebase = Firestore.firestore()
-    
-    var getType01List = [Any]()
-    var getType02List = [Any]()
-    var getType03List = [Any]()
-    var getType04List = [Any]()
-    var achievementCount: Int?
-    var totalCount: Int?
-    var trainingCount: Int?
-    var allTotalCount: Int?
-    
-    var swingType = ["上下素振り", "正面素振り", "左右素振り", "速素振り"]
-    var type01Counter: Double? // 上下素振り
-    var type02Counter: Double? // 正面素振り
-    var type03Counter: Double? // 左右素振り
-    var type04Counter: Double? // 速素振り
-    var type01TotalCounter: Double? // 上下素振り
-    var type02TotalCounter: Double? // 正面素振り
-    var type03TotalCounter: Double? // 左右素振り
-    var type04TotalCounter: Double? // 速素振り
-    
+   
     //　受け取るデータの箱
     var trainingTitle: String?
     var trainingId: String?
@@ -71,7 +43,6 @@ class ShowTrainingMenuViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = rightButton
         self.navigationItem.rightBarButtonItem?.isEnabled = false
         
-        titleLabel.text = trainingTitle
     }
     
     private func getDataFromFirebase() {
@@ -92,30 +63,7 @@ class ShowTrainingMenuViewController: UIViewController {
             if err != nil {
                 print("データの取得に失敗しました")
             }
-            let dataCounter = document?.data()
-            self.getType01List = dataCounter?["type01"] as! [Any]
-            self.getType02List = dataCounter?["type02"] as! [Any]
-            self.getType03List = dataCounter?["type03"] as! [Any]
-            self.getType04List = dataCounter?["type04"] as! [Any]
-            self.achievementCount = dataCounter?["achievementCount"] as? Int
-            self.totalCount = dataCounter?["totalCount"] as? Int
             
-            self.type01Label.text = self.getType01List[0] as? String
-            self.type02Label.text = self.getType02List[0] as? String
-            self.type03Label.text = self.getType03List[0] as? String
-            self.type04Label.text = self.getType04List[0] as? String
-            
-            self.type01Counter = (self.getType01List[1] as? Double)!
-            self.type02Counter = (self.getType02List[1] as? Double)!
-            self.type03Counter = (self.getType03List[1] as? Double)!
-            self.type04Counter = (self.getType04List[1] as? Double)!
-            
-            self.count01Label.text = "\(Int(self.type01Counter!))本"
-            self.count02Label.text = "\(Int(self.type02Counter!))本"
-            self.count03Label.text = "\(Int(self.type03Counter!))本"
-            self.count04Label.text = "\(Int(self.type04Counter!))本"
-            
-            print(self.type01Counter)
         }
     }
     

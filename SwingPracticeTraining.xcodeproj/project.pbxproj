@@ -9,17 +9,16 @@
 /* Begin PBXBuildFile section */
 		392AF2D125BB314900DC0384 /* AddTrainingDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392AF2D025BB314900DC0384 /* AddTrainingDataViewController.swift */; };
 		392AF2D425BBDC7000DC0384 /* TrainingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392AF2D325BBDC6F00DC0384 /* TrainingData.swift */; };
-		392AF2D625BBF19500DC0384 /* ShowTrainingMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392AF2D525BBF19500DC0384 /* ShowTrainingMenuViewController.swift */; };
-		392AF2D925BD9E5C00DC0384 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392AF2D825BD9E5C00DC0384 /* GraphViewController.swift */; };
-		392AF37525BFCE9800DC0384 /* SelectGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392AF37425BFCE9800DC0384 /* SelectGraphViewController.swift */; };
+		395A2619266F806D00B7A481 /* ShowTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395A2618266F806D00B7A481 /* ShowTrainingViewController.swift */; };
+		395A261B267034D000B7A481 /* MenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395A261A267034D000B7A481 /* MenuData.swift */; };
+		39723E60266C95FE001233B3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39723E5F266C95FE001233B3 /* LoginViewController.swift */; };
+		39723E62266C960D001233B3 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39723E61266C960D001233B3 /* SignupViewController.swift */; };
 		3990ADC325BB1DDD007E1DAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3990ADC225BB1DDD007E1DAA /* AppDelegate.swift */; };
 		3990ADC525BB1DDD007E1DAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3990ADC425BB1DDD007E1DAA /* SceneDelegate.swift */; };
 		3990ADC725BB1DDD007E1DAA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3990ADC625BB1DDD007E1DAA /* HomeViewController.swift */; };
 		3990ADCA25BB1DDD007E1DAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3990ADC825BB1DDD007E1DAA /* Main.storyboard */; };
 		3990ADCC25BB1DE1007E1DAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3990ADCB25BB1DE1007E1DAA /* Assets.xcassets */; };
 		3990ADCF25BB1DE1007E1DAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3990ADCD25BB1DE1007E1DAA /* LaunchScreen.storyboard */; };
-		3990ADDA25BB1EB3007E1DAA /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3990ADD925BB1EB3007E1DAA /* SignupViewController.swift */; };
-		3990ADDC25BB1EBD007E1DAA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3990ADDB25BB1EBD007E1DAA /* LoginViewController.swift */; };
 		3990ADDF25BB1EF3007E1DAA /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3990ADDE25BB1EF3007E1DAA /* SignUp.storyboard */; };
 		3990ADE125BB1EFC007E1DAA /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3990ADE025BB1EFC007E1DAA /* Login.storyboard */; };
 		3990ADE425BB24F7007E1DAA /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3990ADE325BB24F7007E1DAA /* UserData.swift */; };
@@ -34,9 +33,10 @@
 		195CECF333DCBBC01221DE08 /* Pods-SwingPracticeTraining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwingPracticeTraining.debug.xcconfig"; path = "Target Support Files/Pods-SwingPracticeTraining/Pods-SwingPracticeTraining.debug.xcconfig"; sourceTree = "<group>"; };
 		392AF2D025BB314900DC0384 /* AddTrainingDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTrainingDataViewController.swift; sourceTree = "<group>"; };
 		392AF2D325BBDC6F00DC0384 /* TrainingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingData.swift; sourceTree = "<group>"; };
-		392AF2D525BBF19500DC0384 /* ShowTrainingMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTrainingMenuViewController.swift; sourceTree = "<group>"; };
-		392AF2D825BD9E5C00DC0384 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
-		392AF37425BFCE9800DC0384 /* SelectGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGraphViewController.swift; sourceTree = "<group>"; };
+		395A2618266F806D00B7A481 /* ShowTrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTrainingViewController.swift; sourceTree = "<group>"; };
+		395A261A267034D000B7A481 /* MenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuData.swift; sourceTree = "<group>"; };
+		39723E5F266C95FE001233B3 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		39723E61266C960D001233B3 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		3990ADBF25BB1DDD007E1DAA /* SwingPracticeTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwingPracticeTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3990ADC225BB1DDD007E1DAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3990ADC425BB1DDD007E1DAA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,8 +45,6 @@
 		3990ADCB25BB1DE1007E1DAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3990ADCE25BB1DE1007E1DAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3990ADD025BB1DE1007E1DAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3990ADD925BB1EB3007E1DAA /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
-		3990ADDB25BB1EBD007E1DAA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3990ADDE25BB1EF3007E1DAA /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		3990ADE025BB1EFC007E1DAA /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		3990ADE325BB24F7007E1DAA /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -76,13 +74,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		392AF2D725BD9E2800DC0384 /* ShowGraphViewControllers */ = {
+		39723E5E266C95D9001233B3 /* SignUp&Login */ = {
 			isa = PBXGroup;
 			children = (
-				392AF37425BFCE9800DC0384 /* SelectGraphViewController.swift */,
-				392AF2D825BD9E5C00DC0384 /* GraphViewController.swift */,
+				39723E61266C960D001233B3 /* SignupViewController.swift */,
+				39723E5F266C95FE001233B3 /* LoginViewController.swift */,
 			);
-			path = ShowGraphViewControllers;
+			path = "SignUp&Login";
 			sourceTree = "<group>";
 		};
 		3990ADB625BB1DDD007E1DAA = {
@@ -112,8 +110,7 @@
 				3990ADE225BB24E5007E1DAA /* Models */,
 				3990ADD725BB1DFE007E1DAA /* RankViewControllers */,
 				3990ADE725BB260D007E1DAA /* TrainingMenuViewControllers */,
-				392AF2D725BD9E2800DC0384 /* ShowGraphViewControllers */,
-				3990ADD825BB1E94007E1DAA /* SignUp&Login */,
+				39723E5E266C95D9001233B3 /* SignUp&Login */,
 				3990ADDD25BB1EC7007E1DAA /* StoryBoards */,
 				3990ADCB25BB1DE1007E1DAA /* Assets.xcassets */,
 				3990ADCD25BB1DE1007E1DAA /* LaunchScreen.storyboard */,
@@ -131,15 +128,6 @@
 			path = RankViewControllers;
 			sourceTree = "<group>";
 		};
-		3990ADD825BB1E94007E1DAA /* SignUp&Login */ = {
-			isa = PBXGroup;
-			children = (
-				3990ADD925BB1EB3007E1DAA /* SignupViewController.swift */,
-				3990ADDB25BB1EBD007E1DAA /* LoginViewController.swift */,
-			);
-			path = "SignUp&Login";
-			sourceTree = "<group>";
-		};
 		3990ADDD25BB1EC7007E1DAA /* StoryBoards */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +143,7 @@
 			children = (
 				3990ADE325BB24F7007E1DAA /* UserData.swift */,
 				392AF2D325BBDC6F00DC0384 /* TrainingData.swift */,
+				395A261A267034D000B7A481 /* MenuData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -164,7 +153,7 @@
 			children = (
 				3990ADE825BB2647007E1DAA /* TrainingMenuViewController.swift */,
 				392AF2D025BB314900DC0384 /* AddTrainingDataViewController.swift */,
-				392AF2D525BBF19500DC0384 /* ShowTrainingMenuViewController.swift */,
+				395A2618266F806D00B7A481 /* ShowTrainingViewController.swift */,
 			);
 			path = TrainingMenuViewControllers;
 			sourceTree = "<group>";
@@ -304,17 +293,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39723E60266C95FE001233B3 /* LoginViewController.swift in Sources */,
 				3990ADE425BB24F7007E1DAA /* UserData.swift in Sources */,
 				3990ADE925BB2647007E1DAA /* TrainingMenuViewController.swift in Sources */,
-				392AF37525BFCE9800DC0384 /* SelectGraphViewController.swift in Sources */,
+				395A2619266F806D00B7A481 /* ShowTrainingViewController.swift in Sources */,
+				395A261B267034D000B7A481 /* MenuData.swift in Sources */,
 				3990ADC725BB1DDD007E1DAA /* HomeViewController.swift in Sources */,
 				392AF2D125BB314900DC0384 /* AddTrainingDataViewController.swift in Sources */,
-				392AF2D625BBF19500DC0384 /* ShowTrainingMenuViewController.swift in Sources */,
 				3990ADC325BB1DDD007E1DAA /* AppDelegate.swift in Sources */,
-				3990ADDA25BB1EB3007E1DAA /* SignupViewController.swift in Sources */,
 				3990ADEC25BB2688007E1DAA /* UIColor.swift in Sources */,
-				3990ADDC25BB1EBD007E1DAA /* LoginViewController.swift in Sources */,
-				392AF2D925BD9E5C00DC0384 /* GraphViewController.swift in Sources */,
+				39723E62266C960D001233B3 /* SignupViewController.swift in Sources */,
 				3990ADC525BB1DDD007E1DAA /* SceneDelegate.swift in Sources */,
 				392AF2D425BBDC7000DC0384 /* TrainingData.swift in Sources */,
 			);
@@ -462,6 +450,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8XH69ZV759;
 				INFOPLIST_FILE = SwingPracticeTraining/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -480,6 +469,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8XH69ZV759;
 				INFOPLIST_FILE = SwingPracticeTraining/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
